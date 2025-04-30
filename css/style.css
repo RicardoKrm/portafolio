@@ -99,7 +99,7 @@ footer {
   color: #fff;
 }
 
-/* === Estilos Específicos (Imágenes, Proyectos, Enlaces, Habilidades, Contacto, Navegación) === */
+/* === Estilos Específicos (Imágenes, Proyectos, Enlaces, Habilidades, Contacto, Navegación, Sociales) === */
 
 /* Estilo para la imagen de perfil en la sección Sobre Mí */
 #sobre-mi img {
@@ -271,6 +271,25 @@ nav ul li a:hover {
   color: #007bff;
 }
 
+/* Estilos para los íconos sociales en el footer */
+footer .social-icons {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer .social-icons a {
+  color: #fff;
+  font-size: 1.8em; /* Tamaño de los iconos */
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+footer .social-icons a:hover {
+  color: #007bff; /* Color al pasar el mouse */
+}
+
 /* === Ajustes de Margen y Selectores Específicos === */
 
 /* Ajustes de margen superior para el primer elemento dentro del contenedor si es un h */
@@ -289,74 +308,142 @@ nav ul li a:hover {
 @media (max-width: 768px) {
   /* Ajustes generales de padding */
   .container {
-    padding: 0 15px; /* Reduce el padding lateral en pantallas pequeñas */
+    padding: 0 15px;
   }
 
   section {
-    padding: 40px 0; /* Reduce el padding vertical de las secciones */
+    padding: 40px 0;
   }
 
   header {
-    padding: 60px 0; /* Reduce el padding del encabezado */
+    padding: 60px 0;
   }
 
   /* Ajustes de tamaño de fuente para títulos principales */
   header h1 {
-    font-size: 2em; /* Reduce el tamaño del título principal */
+    font-size: 2em;
   }
 
   header p {
-    font-size: 1em; /* Reduce el tamaño del subtítulo */
+    font-size: 1em;
   }
 
   section h2 {
-    font-size: 1.8em; /* Reduce el tamaño de los títulos de sección */
-    margin-bottom: 1.5rem; /* Ajusta el margen debajo de los títulos de sección */
+    font-size: 1.8em;
+    margin-bottom: 1.5rem;
   }
 
   /* Ajustes para la rejilla de proyectos */
   .projects-list {
-    gap: 20px; /* Reduce el espacio entre ítems de proyecto */
+    gap: 20px;
   }
 
   /* Ajustes para la lista de habilidades */
   #habilidades ul {
-    grid-template-columns: repeat(
-      auto-fit,
-      minmax(100px, 1fr)
-    ); /* Habilidades más pequeñas */
-    gap: 8px; /* Reduce el espacio entre habilidades */
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 8px;
   }
 
   #habilidades li {
-    padding: 8px 12px; /* Reduce el padding de los ítems de habilidad */
-    font-size: 0.85em; /* Reduce el tamaño de fuente de habilidad */
+    padding: 8px 12px;
+    font-size: 0.85em;
   }
 
   /* Ajustes de navegación - Ejemplo básico (más ajustes si queremos que se apile verticalmente o sea menú hamburguesa) */
   nav .container {
-    flex-direction: column; /* Apila el título y la lista verticalmente */
-    text-align: center; /* Centra el texto */
+    flex-direction: column;
+    text-align: center;
   }
 
   nav .site-title {
-    margin-bottom: 10px; /* Espacio debajo del título cuando está apilado */
+    margin-bottom: 10px;
   }
 
   nav ul {
-    flex-direction: column; /* Apila los ítems de la lista verticalmente */
+    flex-direction: column;
   }
 
   nav ul li {
-    margin-left: 0; /* Elimina el margen izquierdo entre ítems */
-    margin-bottom: 5px; /* Espacio debajo de cada ítem de menú cuando está apilado */
+    margin-left: 0;
+    margin-bottom: 5px;
   }
 
   nav ul li:last-child {
-    margin-bottom: 0; /* Elimina el margen debajo del último ítem */
+    margin-bottom: 0;
   }
 
   nav ul li a {
-    padding: 5px 0; /* Ajusta el padding */
+    padding: 5px 0;
   }
+
+  /* Ajustes de íconos sociales en el footer para pantallas pequeñas */
+  footer .social-icons a {
+    font-size: 1.5em; /* Ligeramente más pequeños en mobile */
+    margin: 0 8px; /* Espacio reducido */
+  }
+
+  /* Media Query para pantallas MUY pequeñas (teléfonos) */
+  @media (max-width: 480px) {
+    /* Ajustes generales de padding aún más reducidos */
+    .container {
+      padding: 0 10px; /* Reduce aún más el padding lateral */
+    }
+
+    section {
+      padding: 30px 0; /* Reduce aún más el padding vertical */
+    }
+
+    header {
+      padding: 40px 0; /* Reduce el padding del encabezado */
+    }
+
+    /* Ajustes de tamaño de fuente para títulos en pantallas muy pequeñas */
+    header h1 {
+      font-size: 1.8em; /* Reduce aún más el título principal */
+    }
+
+    header p {
+      font-size: 0.95em; /* Reduce el subtítulo */
+    }
+
+    section h2 {
+      font-size: 1.6em; /* Reduce el título de sección */
+      margin-bottom: 1rem; /* Ajusta el margen */
+    }
+
+    /* Ajustes finos para la rejilla de proyectos en pantallas muy pequeñas */
+    .projects-list {
+      gap: 15px; /* Reduce espacio entre proyectos */
+    }
+
+    .project-item {
+      padding: 15px; /* Reduce padding de la tarjeta de proyecto */
+    }
+
+    /* Ajustes finos para la lista de habilidades en pantallas muy pequeñas */
+    #habilidades ul {
+      grid-template-columns: repeat(
+        auto-fit,
+        minmax(90px, 1fr)
+      ); /* Habilidades aún más pequeñas si es necesario */
+      gap: 6px; /* Reduce espacio entre habilidades */
+    }
+
+    #habilidades li {
+      padding: 6px 10px; /* Reduce padding de habilidad */
+      font-size: 0.8em; /* Reduce tamaño de fuente de habilidad */
+    }
+
+    /* Ajustes finos para navegación o íconos si es necesario en este tamaño */
+    nav .site-title a {
+      font-size: 1.3em; /* Reduce tamaño del título en nav */
+    }
+
+    footer .social-icons a {
+      font-size: 1.3em; /* Reduce tamaño de iconos sociales */
+      margin: 0 6px; /* Reduce espacio entre iconos sociales */
+    }
+  }
+
+  /* Puedes añadir más @media queries si identificas otros puntos de quiebre necesarios */
 }
