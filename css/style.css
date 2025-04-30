@@ -1,0 +1,31 @@
+/* Estilos base para el body y reseteo general */
+body {
+  margin: 0; /* Elimina el margen por defecto del body */
+  font-family: sans-serif; /* Establece una fuente genérica sans-serif */
+  line-height: 1.6; /* Espaciado entre líneas para mejor legibilidad */
+  color: #333; /* Color de texto oscuro pero no negro puro */
+  background-color: #f4f4f4; /* Un fondo suave para la página */
+}
+
+/* Box-sizing para facilitar el layout */
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* Padding y borde incluidos en el ancho/alto del elemento */
+}
+
+/* Un estilo básico para los encabezados (opcional por ahora) */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0; /* Elimina margen superior por defecto */
+  line-height: 1.2; /* Espaciado entre líneas más cerrado para títulos */
+}
+
+/* Eliminar margen inferior de los últimos elementos en secciones (ejemplo, ajustar luego) */
+section *:last-child {
+  margin-bottom: 0;
+}
