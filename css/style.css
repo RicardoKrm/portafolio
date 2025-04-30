@@ -31,6 +31,15 @@ p {
   margin-bottom: 1rem;
 }
 
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 /* === Contenedor Principal === */
 .container {
   width: 90%;
@@ -90,7 +99,7 @@ footer {
   color: #fff;
 }
 
-/* === Estilos Específicos (Imágenes, etc.) === */
+/* === Estilos Específicos (Imágenes, Proyectos, etc.) === */
 
 /* Estilo para la imagen de perfil en la sección Sobre Mí */
 #sobre-mi img {
@@ -102,12 +111,53 @@ footer {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* === Ajustes de Margen === */
+/* Estilo para los h2 dentro de las secciones (excepto el header) */
+section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #0056b3;
+}
 
+/* Estilo para el Contenedor de la lista de proyectos - Usamos Grid aquí */
+.projects-list {
+  display: grid; /* Convierte este div en un contenedor Grid */
+  /* Define las columnas: Ajusta automáticamente columnas que tengan
+       al menos 280px de ancho, pero que no sobrepasen 1 fracción del espacio disponible.
+       Esto crea una rejilla responsiva que se adapta al ancho de la pantalla. */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px; /* Crea espacio (gutter) entre los elementos de la rejilla (filas y columnas) */
+  margin-top: 20px; /* Espacio arriba de la rejilla, debajo del párrafo */
+}
+
+/* Estilo para cada item individual del proyecto (la "tarjeta") */
+.project-item {
+  background-color: #ffffff; /* Fondo blanco para cada tarjeta */
+  padding: 20px; /* Relleno dentro de la tarjeta */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Una sombra suave */
+}
+
+/* Estilo para el título del proyecto dentro de la tarjeta */
+.project-item h3 {
+  color: #007bff; /* Color para los títulos de proyecto */
+  margin-top: 0; /* Asegura que no haya margen extra arriba */
+  margin-bottom: 0.8rem; /* Espacio debajo del título */
+}
+
+/* Estilo para la descripción del proyecto dentro de la tarjeta */
+.project-item p {
+  font-size: 0.95em; /* Fuente un poco más pequeña */
+  margin-bottom: 0; /* Elimina margen inferior si es el último elemento en la tarjeta */
+}
+
+/* === Ajustes de Margen y Selectores Específicos === */
+
+/* Eliminar margen inferior del último elemento dentro del contenedor en secciones, header o footer */
 .container > *:last-child {
   margin-bottom: 0;
 }
 
+/* Ajustes de margen superior para el primer elemento dentro del contenedor si es un h */
 .container > h1:first-child,
 .container > h2:first-child,
 .container > h3:first-child,
@@ -115,10 +165,4 @@ footer {
 .container > h5:first-child,
 .container > h6:first-child {
   margin-top: 0;
-}
-
-section h2 {
-  text-align: center;
-  margin-bottom: 2rem;
-  color: #0056b3;
 }
