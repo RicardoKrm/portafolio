@@ -99,7 +99,7 @@ footer {
   color: #fff;
 }
 
-/* === Estilos Específicos (Imágenes, Proyectos, etc.) === */
+/* === Estilos Específicos (Imágenes, Proyectos, Enlaces, Habilidades, etc.) === */
 
 /* Estilo para la imagen de perfil en la sección Sobre Mí */
 #sobre-mi img {
@@ -120,42 +120,89 @@ section h2 {
 
 /* Estilo para el Contenedor de la lista de proyectos - Usamos Grid aquí */
 .projects-list {
-  display: grid; /* Convierte este div en un contenedor Grid */
-  /* Define las columnas: Ajusta automáticamente columnas que tengan
-       al menos 280px de ancho, pero que no sobrepasen 1 fracción del espacio disponible.
-       Esto crea una rejilla responsiva que se adapta al ancho de la pantalla. */
+  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px; /* Crea espacio (gutter) entre los elementos de la rejilla (filas y columnas) */
-  margin-top: 20px; /* Espacio arriba de la rejilla, debajo del párrafo */
+  gap: 30px;
+  margin-top: 20px;
 }
 
 /* Estilo para cada item individual del proyecto (la "tarjeta") */
 .project-item {
-  background-color: #ffffff; /* Fondo blanco para cada tarjeta */
-  padding: 20px; /* Relleno dentro de la tarjeta */
-  border-radius: 8px; /* Bordes redondeados */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Una sombra suave */
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilo para las imágenes dentro de cada item de proyecto */
+.project-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  flex-shrink: 0;
 }
 
 /* Estilo para el título del proyecto dentro de la tarjeta */
 .project-item h3 {
-  color: #007bff; /* Color para los títulos de proyecto */
-  margin-top: 0; /* Asegura que no haya margen extra arriba */
-  margin-bottom: 0.8rem; /* Espacio debajo del título */
+  color: #007bff;
+  margin-top: 0;
+  margin-bottom: 0.8rem;
 }
 
 /* Estilo para la descripción del proyecto dentro de la tarjeta */
 .project-item p {
-  font-size: 0.95em; /* Fuente un poco más pequeña */
-  margin-bottom: 0; /* Elimina margen inferior si es el último elemento en la tarjeta */
+  font-size: 0.95em;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+/* Estilo para los enlaces dentro de cada item de proyecto */
+.project-item a {
+  display: inline-block;
+  margin-right: 15px;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+/* Estilo al pasar el mouse por encima de los enlaces */
+.project-item a:hover {
+  text-decoration: underline;
+  color: #0056b3;
+}
+
+/* Ajuste para el último enlace para quitar el margen a la derecha */
+.project-item a:last-child {
+  margin-right: 0;
+}
+
+/* Estilos para la lista de habilidades */
+#habilidades ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px;
+  justify-content: center;
+}
+
+#habilidades li {
+  background-color: #e9ecef;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 0.9em;
+  font-weight: bold;
+  color: #0056b3;
 }
 
 /* === Ajustes de Margen y Selectores Específicos === */
-
-/* Eliminar margen inferior del último elemento dentro del contenedor en secciones, header o footer */
-.container > *:last-child {
-  margin-bottom: 0;
-}
 
 /* Ajustes de margen superior para el primer elemento dentro del contenedor si es un h */
 .container > h1:first-child,
