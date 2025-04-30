@@ -1,31 +1,124 @@
-/* Estilos base para el body y reseteo general */
+/* === Estilos Globales y Reseteo === */
 body {
-  margin: 0; /* Elimina el margen por defecto del body */
-  font-family: sans-serif; /* Establece una fuente genérica sans-serif */
-  line-height: 1.6; /* Espaciado entre líneas para mejor legibilidad */
-  color: #333; /* Color de texto oscuro pero no negro puro */
-  background-color: #f4f4f4; /* Un fondo suave para la página */
+  margin: 0;
+  font-family: sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f4f4f4;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Box-sizing para facilitar el layout */
 *,
 *::before,
 *::after {
-  box-sizing: border-box; /* Padding y borde incluidos en el ancho/alto del elemento */
+  box-sizing: border-box;
 }
 
-/* Un estilo básico para los encabezados (opcional por ahora) */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  margin-top: 0; /* Elimina margen superior por defecto */
-  line-height: 1.2; /* Espaciado entre líneas más cerrado para títulos */
+  margin-top: 0;
+  line-height: 1.2;
+  margin-bottom: 1rem;
 }
 
-/* Eliminar margen inferior de los últimos elementos en secciones (ejemplo, ajustar luego) */
-section *:last-child {
+p {
+  margin-bottom: 1rem;
+}
+
+/* === Contenedor Principal === */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  flex-grow: 1;
+}
+
+/* === Estilos de Secciones === */
+section {
+  padding: 60px 0;
+}
+
+#sobre-mi {
+  background-color: #ffffff;
+}
+
+#proyectos {
+  background-color: #f8f9fa;
+}
+
+#habilidades {
+  background-color: #ffffff;
+}
+
+#contacto {
+  background-color: #f8f9fa;
+}
+
+/* === Estilos del Encabezado (Header) === */
+header {
+  background-color: #007bff;
+  color: #fff;
+  padding: 80px 0;
+  text-align: center;
   margin-bottom: 0;
+}
+
+header h1 {
+  font-size: 2.5em;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+header p {
+  font-size: 1.2em;
+  opacity: 0.9;
+  margin-top: 0;
+}
+
+/* === Estilos del Pie de Página (Footer) === */
+footer {
+  padding: 40px 0;
+  text-align: center;
+  background-color: #333;
+  color: #fff;
+}
+
+/* === Estilos Específicos (Imágenes, etc.) === */
+
+/* Estilo para la imagen de perfil en la sección Sobre Mí */
+#sobre-mi img {
+  display: block;
+  max-width: 150px;
+  height: auto;
+  border-radius: 50%;
+  margin: 0 auto 1.5rem auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* === Ajustes de Margen === */
+
+.container > *:last-child {
+  margin-bottom: 0;
+}
+
+.container > h1:first-child,
+.container > h2:first-child,
+.container > h3:first-child,
+.container > h4:first-child,
+.container > h5:first-child,
+.container > h6:first-child {
+  margin-top: 0;
+}
+
+section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #0056b3;
 }
