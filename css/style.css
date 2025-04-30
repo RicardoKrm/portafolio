@@ -290,6 +290,20 @@ footer .social-icons a:hover {
   color: #007bff; /* Color al pasar el mouse */
 }
 
+/* Estilos para el botón de menú hamburguesa (visible solo en móvil) */
+.menu-toggle {
+  /* Oculto por defecto en pantallas grandes */
+  display: none;
+  /* Quitamos estilos por defecto de botón */
+  background: none;
+  border: none;
+  color: #fff; /* Color del icono */
+  font-size: 1.8em; /* Tamaño del icono */
+  cursor: pointer;
+  padding: 5px;
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
 /* === Ajustes de Margen y Selectores Específicos === */
 
 /* Ajustes de margen superior para el primer elemento dentro del contenedor si es un h */
@@ -349,31 +363,48 @@ footer .social-icons a:hover {
     font-size: 0.85em;
   }
 
-  /* Ajustes de navegación - Ejemplo básico (más ajustes si queremos que se apile verticalmente o sea menú hamburguesa) */
+  /* Ajustes de navegación para móvil */
   nav .container {
-    flex-direction: column;
-    text-align: center;
+    flex-direction: column; /* Apila el título y la lista verticalmente */
+    text-align: center; /* Centra el texto */
   }
 
   nav .site-title {
-    margin-bottom: 10px;
+    margin-bottom: 10px; /* Espacio debajo del título cuando está apilado */
   }
 
   nav ul {
-    flex-direction: column;
+    /* Ocultar la lista de menú principal por defecto en pantallas pequeñas */
+    display: none; /* Lo ocultamos visualmente y no ocupa espacio */
+
+    flex-direction: column; /* Apila los ítems de la lista verticalmente */
+    width: 100%; /* Ocupa todo el ancho en móvil */
+    background-color: #333; /* Fondo del menú desplegado (ajústalo si usas posición absoluta) */
+    /* Si usas posicionamiento absoluto, descomenta estas líneas: */
+    /* position: absolute; */
+    /* top: [altura de tu nav]; */
+    /* left: 0; */
+    /* box-shadow: 0 2px 5px rgba(0,0,0,0.2); */
+    /* padding-bottom: 10px; */
   }
 
+  /* Mostrar el botón de hamburguesa en pantallas pequeñas */
+  .menu-toggle {
+    display: block; /* Lo hacemos visible */
+  }
+
+  /* Ajustes para que los ítems de menú apilados se vean bien */
   nav ul li {
-    margin-left: 0;
-    margin-bottom: 5px;
+    margin-left: 0; /* Elimina el margen izquierdo entre ítems */
+    margin-bottom: 5px; /* Espacio debajo de cada ítem de menú */
   }
 
   nav ul li:last-child {
-    margin-bottom: 0;
+    margin-bottom: 0; /* Elimina el margen debajo del último ítem */
   }
 
   nav ul li a {
-    padding: 5px 0;
+    padding: 5px 0; /* Ajusta el padding */
   }
 
   /* Ajustes de íconos sociales en el footer para pantallas pequeñas */
@@ -382,68 +413,73 @@ footer .social-icons a:hover {
     margin: 0 8px; /* Espacio reducido */
   }
 
-  /* Media Query para pantallas MUY pequeñas (teléfonos) */
-  @media (max-width: 480px) {
-    /* Ajustes generales de padding aún más reducidos */
-    .container {
-      padding: 0 10px; /* Reduce aún más el padding lateral */
-    }
+  /* Estilos para cuando el menú móvil está abierto (esta clase la añadiremos con JS) */
+  /* nav ul.menu-open { */
+  /* display: flex; */
+  /* O display: block; dependiendo de cómo lo diseñes */
+  /* } */
+}
 
-    section {
-      padding: 30px 0; /* Reduce aún más el padding vertical */
-    }
-
-    header {
-      padding: 40px 0; /* Reduce el padding del encabezado */
-    }
-
-    /* Ajustes de tamaño de fuente para títulos en pantallas muy pequeñas */
-    header h1 {
-      font-size: 1.8em; /* Reduce aún más el título principal */
-    }
-
-    header p {
-      font-size: 0.95em; /* Reduce el subtítulo */
-    }
-
-    section h2 {
-      font-size: 1.6em; /* Reduce el título de sección */
-      margin-bottom: 1rem; /* Ajusta el margen */
-    }
-
-    /* Ajustes finos para la rejilla de proyectos en pantallas muy pequeñas */
-    .projects-list {
-      gap: 15px; /* Reduce espacio entre proyectos */
-    }
-
-    .project-item {
-      padding: 15px; /* Reduce padding de la tarjeta de proyecto */
-    }
-
-    /* Ajustes finos para la lista de habilidades en pantallas muy pequeñas */
-    #habilidades ul {
-      grid-template-columns: repeat(
-        auto-fit,
-        minmax(90px, 1fr)
-      ); /* Habilidades aún más pequeñas si es necesario */
-      gap: 6px; /* Reduce espacio entre habilidades */
-    }
-
-    #habilidades li {
-      padding: 6px 10px; /* Reduce padding de habilidad */
-      font-size: 0.8em; /* Reduce tamaño de fuente de habilidad */
-    }
-
-    /* Ajustes finos para navegación o íconos si es necesario en este tamaño */
-    nav .site-title a {
-      font-size: 1.3em; /* Reduce tamaño del título en nav */
-    }
-
-    footer .social-icons a {
-      font-size: 1.3em; /* Reduce tamaño de iconos sociales */
-      margin: 0 6px; /* Reduce espacio entre iconos sociales */
-    }
+/* Media Query para pantallas MUY pequeñas (teléfonos) */
+@media (max-width: 480px) {
+  /* Ajustes generales de padding aún más reducidos */
+  .container {
+    padding: 0 10px;
   }
 
-  /* Puedes añadir más @media queries si identificas otros puntos de quiebre necesarios */
+  section {
+    padding: 30px 0;
+  }
+
+  header {
+    padding: 40px 0;
+  }
+
+  /* Ajustes de tamaño de fuente para títulos en pantallas muy pequeñas */
+  header h1 {
+    font-size: 1.8em;
+  }
+
+  header p {
+    font-size: 0.95em;
+  }
+
+  section h2 {
+    font-size: 1.6em;
+    margin-bottom: 1rem;
+  }
+
+  /* Ajustes finos para la rejilla de proyectos en pantallas muy pequeñas */
+  .projects-list {
+    gap: 15px;
+  }
+
+  .project-item {
+    padding: 15px;
+  }
+
+  /* Ajustes finos para la lista de habilidades en pantallas muy pequeñas */
+  #habilidades ul {
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    gap: 6px;
+  }
+
+  #habilidades li {
+    padding: 6px 10px;
+    font-size: 0.8em;
+  }
+
+  /* Ajustes finos para navegación o íconos si es necesario en este tamaño */
+  nav .site-title a {
+    font-size: 1.3em;
+  }
+
+  .menu-toggle {
+    font-size: 1.5em; /* Un poco más pequeño */
+  }
+
+  footer .social-icons a {
+    font-size: 1.3em;
+    margin: 0 6px;
+  }
 }
