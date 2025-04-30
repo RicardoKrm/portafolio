@@ -67,7 +67,7 @@ section {
 }
 
 #contacto {
-  background-color: #f8f9fa;
+  background-color: #ffffff;
 }
 
 /* === Estilos del Encabezado (Header) === */
@@ -99,7 +99,7 @@ footer {
   color: #fff;
 }
 
-/* === Estilos Específicos (Imágenes, Proyectos, Enlaces, Habilidades, etc.) === */
+/* === Estilos Específicos (Imágenes, Proyectos, Enlaces, Habilidades, Contacto, Navegación) === */
 
 /* Estilo para la imagen de perfil en la sección Sobre Mí */
 #sobre-mi img {
@@ -202,6 +202,75 @@ section h2 {
   color: #0056b3;
 }
 
+/* Estilos de la sección Contacto */
+/* Estilo para el contenedor interno de los enlaces de contacto */
+#contacto .container > div {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Estilo para cada párrafo que contiene un enlace de contacto */
+#contacto .container > div p {
+  margin-bottom: 0.5rem;
+  font-size: 1.1em;
+}
+
+/* Estilo para los enlaces de contacto (Email, LinkedIn, GitHub) */
+#contacto a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Estilo al pasar el mouse por encima de los enlaces de contacto */
+#contacto a:hover {
+  text-decoration: underline;
+  color: #0056b3;
+}
+
+/* Estilos del Menú de Navegación (Nav) */
+
+nav {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
+}
+
+nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav .site-title a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 5px 0;
+}
+
+nav ul li a:hover {
+  color: #007bff;
+}
+
 /* === Ajustes de Margen y Selectores Específicos === */
 
 /* Ajustes de margen superior para el primer elemento dentro del contenedor si es un h */
@@ -212,4 +281,82 @@ section h2 {
 .container > h5:first-child,
 .container > h6:first-child {
   margin-top: 0;
+}
+
+/* === Estilos Responsivos === */
+
+/* Media Query para pantallas más pequeñas (tabletas y móviles) */
+@media (max-width: 768px) {
+  /* Ajustes generales de padding */
+  .container {
+    padding: 0 15px; /* Reduce el padding lateral en pantallas pequeñas */
+  }
+
+  section {
+    padding: 40px 0; /* Reduce el padding vertical de las secciones */
+  }
+
+  header {
+    padding: 60px 0; /* Reduce el padding del encabezado */
+  }
+
+  /* Ajustes de tamaño de fuente para títulos principales */
+  header h1 {
+    font-size: 2em; /* Reduce el tamaño del título principal */
+  }
+
+  header p {
+    font-size: 1em; /* Reduce el tamaño del subtítulo */
+  }
+
+  section h2 {
+    font-size: 1.8em; /* Reduce el tamaño de los títulos de sección */
+    margin-bottom: 1.5rem; /* Ajusta el margen debajo de los títulos de sección */
+  }
+
+  /* Ajustes para la rejilla de proyectos */
+  .projects-list {
+    gap: 20px; /* Reduce el espacio entre ítems de proyecto */
+  }
+
+  /* Ajustes para la lista de habilidades */
+  #habilidades ul {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(100px, 1fr)
+    ); /* Habilidades más pequeñas */
+    gap: 8px; /* Reduce el espacio entre habilidades */
+  }
+
+  #habilidades li {
+    padding: 8px 12px; /* Reduce el padding de los ítems de habilidad */
+    font-size: 0.85em; /* Reduce el tamaño de fuente de habilidad */
+  }
+
+  /* Ajustes de navegación - Ejemplo básico (más ajustes si queremos que se apile verticalmente o sea menú hamburguesa) */
+  nav .container {
+    flex-direction: column; /* Apila el título y la lista verticalmente */
+    text-align: center; /* Centra el texto */
+  }
+
+  nav .site-title {
+    margin-bottom: 10px; /* Espacio debajo del título cuando está apilado */
+  }
+
+  nav ul {
+    flex-direction: column; /* Apila los ítems de la lista verticalmente */
+  }
+
+  nav ul li {
+    margin-left: 0; /* Elimina el margen izquierdo entre ítems */
+    margin-bottom: 5px; /* Espacio debajo de cada ítem de menú cuando está apilado */
+  }
+
+  nav ul li:last-child {
+    margin-bottom: 0; /* Elimina el margen debajo del último ítem */
+  }
+
+  nav ul li a {
+    padding: 5px 0; /* Ajusta el padding */
+  }
 }
