@@ -1,13 +1,30 @@
+/* Definición de Variables CSS para colores, facilitando cambios futuros */
+:root {
+  --primary-color: #007bff; /* Azul para elementos principales */
+  --primary-dark: #0056b3; /* Azul oscuro para hover/active */
+  --secondary-color: #6c757d; /* Gris secundario */
+  --text-color: #333; /* Color de texto principal */
+  --background-color: #f8f9fa; /* Fondo claro de secciones */
+  --light-background: #ffffff; /* Fondo blanco para secciones */
+  --dark-background: #333; /* Fondo oscuro para nav y footer */
+  --dark-text: #fff; /* Texto blanco para fondos oscuros */
+  --border-radius: 8px; /* Radio común para bordes */
+  --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  --box-shadow-hover: 0 8px 15px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada en hover */
+}
+
 /* === Estilos Globales y Reseteo === */
 body {
   margin: 0;
-  font-family: sans-serif;
-  line-height: 1.6;
-  color: #333;
-  background-color: #f4f4f4;
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* Fuente más común y moderna */
+  line-height: 1.7; /* Interlineado ligeramente más amplio para mejor legibilidad */
+  color: var(--text-color);
+  background-color: var(--background-color);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  -webkit-font-smoothing: antialiased; /* Mejora el renderizado de fuentes en algunos navegadores */
+  -moz-osx-font-smoothing: grayscale;
 }
 
 *,
@@ -23,21 +40,42 @@ h4,
 h5,
 h6 {
   margin-top: 0;
-  line-height: 1.2;
+  line-height: 1.3; /* Espaciado de línea ajustado para títulos */
   margin-bottom: 1rem;
+  color: var(--primary-dark); /* Color de títulos */
 }
+
+h1 {
+  font-size: 2.8em;
+} /* Tamaño de fuente para el título principal */
+h2 {
+  font-size: 2.2em;
+} /* Tamaño de fuente para títulos de sección */
+h3 {
+  font-size: 1.8em;
+} /* Tamaño de fuente para subtítulos */
 
 p {
   margin-bottom: 1rem;
+  font-size: 1.1em; /* Tamaño de fuente ligeramente mayor para párrafos */
 }
 
 a {
-  color: #007bff;
+  color: var(--primary-color);
   text-decoration: none;
+  transition: color 0.3s ease; /* Transición suave de color */
+  outline: none; /* Elimina contorno de enfoque por defecto */
 }
 
 a:hover {
+  color: var(--primary-dark);
   text-decoration: underline;
+}
+
+a:focus-visible {
+  /* Estilo de enfoque accesible solo cuando se navega con teclado */
+  outline: 2px solid var(--primary-dark);
+  outline-offset: 3px;
 }
 
 /* === Contenedor Principal === */
@@ -46,57 +84,67 @@ a:hover {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
-  flex-grow: 1;
+  flex-grow: 1; /* Permite que el contenido principal empuje el footer hacia abajo */
 }
 
 /* === Estilos de Secciones === */
 section {
-  padding: 60px 0;
+  padding: 80px 0; /* Mayor padding vertical entre secciones */
 }
 
 #sobre-mi {
-  background-color: #ffffff;
+  background-color: var(--light-background);
 }
 
 #proyectos {
-  background-color: #f8f9fa;
+  background-color: var(--background-color);
 }
 
 #habilidades {
-  background-color: #ffffff;
+  background-color: var(--light-background);
 }
 
 #contacto {
-  background-color: #ffffff;
+  background-color: var(--background-color);
 }
 
 /* === Estilos del Encabezado (Header) === */
 header {
-  background-color: #007bff;
-  color: #fff;
-  padding: 80px 0;
+  background-color: var(--primary-color);
+  color: var(--dark-text);
+  padding: 100px 0; /* Mayor padding en el header */
   text-align: center;
   margin-bottom: 0;
 }
 
 header h1 {
-  font-size: 2.5em;
+  font-size: 3.5em; /* Tamaño de fuente más grande para el título principal */
   margin-bottom: 0.5rem;
-  font-weight: bold;
+  font-weight: 700; /* Fuente negrita */
+  color: var(--dark-text); /* Color blanco para el título del header */
 }
 
 header p {
-  font-size: 1.2em;
-  opacity: 0.9;
+  font-size: 1.4em; /* Tamaño de fuente más grande para el subtítulo del header */
+  opacity: 0.95; /* Ligeramente más opaco */
   margin-top: 0;
+  color: var(--dark-text); /* Color blanco para el texto del header */
 }
 
 /* === Estilos del Pie de Página (Footer) === */
 footer {
   padding: 40px 0;
   text-align: center;
-  background-color: #333;
-  color: #fff;
+  background-color: var(--dark-background);
+  color: var(--dark-text);
+  flex-shrink: 0; /* Evita que el footer se encoja */
+}
+
+/* Asegura que el texto del footer sea legible */
+footer p {
+  margin-bottom: 0.5rem;
+  font-size: 0.9em;
+  color: #bbb; /* Color ligeramente más claro para contraste */
 }
 
 /* === Estilos Específicos (Imágenes, Proyectos, Enlaces, Habilidades, Contacto, Navegación, Sociales) === */
@@ -104,36 +152,69 @@ footer {
 /* Estilo para la imagen de perfil en la sección Sobre Mí */
 #sobre-mi img {
   display: block;
-  max-width: 150px;
+  max-width: 180px; /* Imagen un poco más grande */
   height: auto;
   border-radius: 50%;
-  margin: 0 auto 1.5rem auto;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 auto 2rem auto; /* Mayor margen debajo de la imagen */
+  box-shadow: var(--box-shadow);
 }
 
 /* Estilo para los h2 dentro de las secciones (excepto el header) */
 section h2 {
   text-align: center;
-  margin-bottom: 2rem;
-  color: #0056b3;
+  margin-bottom: 3rem; /* Mayor margen debajo de títulos de sección */
+  color: var(--primary-dark);
 }
 
 /* Estilo para el Contenedor de la lista de proyectos - Usamos Grid aquí */
 .projects-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  margin-top: 20px;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(300px, 1fr)
+  ); /* Mínimo 300px */
+  gap: 40px; /* Mayor espacio entre tarjetas */
+  margin-top: 30px; /* Mayor margen superior */
 }
 
 /* Estilo para cada item individual del proyecto (la "tarjeta") */
 .project-item {
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: var(--light-background);
+  padding: 25px; /* Mayor padding interno */
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
   display: flex;
   flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+}
+
+/* Efecto hover/focus para items de proyecto */
+.project-item:hover,
+.project-item:focus-within {
+  /* focus-within para accesibilidad con teclado */
+  transform: translateY(-8px); /* Mayor movimiento hacia arriba */
+  box-shadow: var(--box-shadow-hover); /* Sombra más pronunciada */
+  outline: none; /* Elimina el contorno de enfoque por defecto */
+}
+
+/* Estilo para los enlaces dentro de cada item de proyecto */
+.project-item a {
+  display: inline-block;
+  margin-right: 20px; /* Mayor margen entre enlaces */
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1em; /* Tamaño de fuente ajustado */
+  outline: none; /* Elimina contorno de enfoque por defecto */
+}
+
+/* Estilo al pasar el mouse por encima o enfocar con teclado en los enlaces */
+.project-item a:hover,
+.project-item a:focus {
+  text-decoration: underline;
+  color: var(--primary-dark);
+  outline: 2px solid var(--primary-dark); /* Contorno de enfoque accesible */
+  outline-offset: 3px; /* Separación del contorno */
 }
 
 /* Estilo para las imágenes dentro de cada item de proyecto */
@@ -141,39 +222,25 @@ section h2 {
   display: block;
   width: 100%;
   height: auto;
-  margin-bottom: 1rem;
-  border-radius: 4px;
+  margin-bottom: 1.5rem; /* Mayor margen debajo de la imagen */
+  border-radius: var(--border-radius);
   flex-shrink: 0;
+  object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
+  aspect-ratio: 16 / 9; /* Proporción común para imágenes de proyectos */
 }
 
 /* Estilo para el título del proyecto dentro de la tarjeta */
 .project-item h3 {
-  color: #007bff;
+  color: var(--primary-dark);
   margin-top: 0;
   margin-bottom: 0.8rem;
 }
 
 /* Estilo para la descripción del proyecto dentro de la tarjeta */
 .project-item p {
-  font-size: 0.95em;
+  font-size: 1em; /* Tamaño de fuente ajustado */
   margin-bottom: 1.5rem;
   flex-grow: 1;
-}
-
-/* Estilo para los enlaces dentro de cada item de proyecto */
-.project-item a {
-  display: inline-block;
-  margin-right: 15px;
-  color: #007bff;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 0.9em;
-}
-
-/* Estilo al pasar el mouse por encima de los enlaces */
-.project-item a:hover {
-  text-decoration: underline;
-  color: #0056b3;
 }
 
 /* Ajuste para el último enlace para quitar el margen a la derecha */
@@ -187,66 +254,100 @@ section h2 {
   padding: 0;
   margin-top: 20px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 10px;
-  justify-content: center;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(130px, 1fr)
+  ); /* Mínimo 130px */
+  gap: 15px; /* Mayor espacio entre ítems */
+  justify-content: center; /* Centra la rejilla si hay menos ítems de los que caben */
+  max-width: 900px; /* Limita el ancho máximo de la lista */
+  margin-left: auto; /* Centra la lista horizontalmente */
+  margin-right: auto; /* Centra la lista horizontalmente */
 }
 
 #habilidades li {
-  background-color: #e9ecef;
-  padding: 10px 15px;
+  background-color: #e9ecef; /* Puedes cambiar este color si quieres */
+  padding: 12px 20px; /* Mayor padding */
   border-radius: 5px;
   text-align: center;
-  font-size: 0.9em;
-  font-weight: bold;
-  color: #0056b3;
+  font-size: 0.95em; /* Tamaño de fuente ligeramente mayor */
+  font-weight: 600; /* Peso de fuente semi-negrita */
+  color: var(--primary-dark);
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Transición suave */
+}
+
+/* Efecto hover/focus para items de habilidad */
+#habilidades li:hover,
+#habilidades li:focus {
+  /* focus para accesibilidad con teclado */
+  background-color: #cfd7de; /* Color de fondo ligeramente más oscuro */
+  transform: translateY(-5px); /* Mayor movimiento hacia arriba */
+  outline: none; /* Elimina contorno de enfoque por defecto */
 }
 
 /* Estilos de la sección Contacto */
 /* Estilo para el contenedor interno de los enlaces de contacto */
 #contacto .container > div {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 30px; /* Mayor margen superior */
 }
 
 /* Estilo para cada párrafo que contiene un enlace de contacto */
 #contacto .container > div p {
-  margin-bottom: 0.5rem;
-  font-size: 1.1em;
+  margin-bottom: 0.8rem; /* Espacio ajustado */
+  font-size: 1.15em; /* Tamaño de fuente ligeramente mayor */
 }
 
 /* Estilo para los enlaces de contacto (Email, LinkedIn, GitHub) */
 #contacto a {
-  color: #007bff;
+  color: var(--primary-color);
   text-decoration: none;
   font-weight: bold;
+  outline: none; /* Elimina contorno de enfoque por defecto */
 }
 
-/* Estilo al pasar el mouse por encima de los enlaces de contacto */
-#contacto a:hover {
+/* Estilo al pasar el mouse por encima o enfocar con teclado en los enlaces de contacto */
+#contacto a:hover,
+#contacto a:focus {
   text-decoration: underline;
-  color: #0056b3;
+  color: var(--primary-dark);
+  outline: 2px solid var(--primary-dark); /* Contorno de enfoque accesible */
+  outline-offset: 3px; /* Separación del contorno */
 }
 
 /* Estilos del Menú de Navegación (Nav) */
 
 nav {
-  background-color: #333;
-  color: #fff;
-  padding: 10px 0;
+  background-color: var(--dark-background);
+  color: var(--dark-text);
+  padding: 15px 0; /* Mayor padding vertical en la nav */
+  position: sticky; /* Hace que la nav se pegue arriba al hacer scroll */
+  top: 0; /* Se pega en la parte superior */
+  z-index: 100; /* Asegura que esté por encima de otros elementos al hacer scroll */
+  box-shadow: var(--box-shadow); /* Sombra sutil */
 }
 
 nav .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 20px; /* Asegura el padding horizontal */
 }
 
 nav .site-title a {
-  color: #fff;
+  color: var(--dark-text);
   text-decoration: none;
-  font-size: 1.5em;
+  font-size: 1.6em; /* Tamaño de fuente ligeramente mayor */
   font-weight: bold;
+  outline: none; /* Elimina contorno de enfoque por defecto */
+  transition: color 0.3s ease; /* Transición suave de color */
+}
+
+nav .site-title a:hover,
+nav .site-title a:focus {
+  color: var(--primary-color);
+  outline: 2px solid var(--primary-color); /* Contorno de enfoque accesible */
+  outline-offset: 3px;
 }
 
 nav ul {
@@ -257,37 +358,52 @@ nav ul {
 }
 
 nav ul li {
-  margin-left: 20px;
+  margin-left: 30px; /* Mayor margen entre ítems de menú en escritorio */
+}
+
+nav ul li:first-child {
+  margin-left: 0; /* Elimina margen izquierdo del primer ítem */
 }
 
 nav ul li a {
-  color: #fff;
+  color: var(--dark-text);
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600; /* Peso de fuente semi-negrita */
   padding: 5px 0;
+  outline: none; /* Elimina contorno de enfoque por defecto */
+  transition: color 0.3s ease; /* Transición suave de color */
 }
 
-nav ul li a:hover {
-  color: #007bff;
+nav ul li a:hover,
+nav ul li a:focus {
+  color: var(--primary-color);
+  outline: 2px solid var(--primary-color); /* Contorno de enfoque accesible */
+  outline-offset: 3px;
 }
 
 /* Estilos para los íconos sociales en el footer */
 footer .social-icons {
-  margin-top: 15px;
+  margin-top: 20px; /* Mayor margen superior */
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 20px; /* Espacio usando gap */
 }
 
 footer .social-icons a {
-  color: #fff;
-  font-size: 1.8em; /* Tamaño de los iconos */
-  margin: 0 10px;
+  color: var(--dark-text);
+  font-size: 2em; /* Mayor tamaño de los iconos */
+  /* margin: 0 10px; -- Reemplazado por gap */
   text-decoration: none;
+  transition: color 0.3s ease; /* Transición suave de color */
+  outline: none; /* Elimina contorno de enfoque por defecto */
 }
 
-footer .social-icons a:hover {
-  color: #007bff; /* Color al pasar el mouse */
+footer .social-icons a:hover,
+footer .social-icons a:focus {
+  color: var(--primary-color); /* Color al pasar el mouse o enfocar */
+  outline: 2px solid var(--primary-color); /* Contorno de enfoque accesible */
+  outline-offset: 3px;
 }
 
 /* Estilos para el botón de menú hamburguesa (visible solo en móvil) */
@@ -297,11 +413,20 @@ footer .social-icons a:hover {
   /* Quitamos estilos por defecto de botón */
   background: none;
   border: none;
-  color: #fff; /* Color del icono */
-  font-size: 1.8em; /* Tamaño del icono */
+  color: var(--dark-text); /* Color del icono */
+  font-size: 2em; /* Tamaño del icono */
   cursor: pointer;
   padding: 5px;
   z-index: 1000; /* Asegura que esté por encima de otros elementos */
+  outline: none; /* Elimina contorno de enfoque por defecto */
+  transition: color 0.3s ease; /* Transición suave de color */
+}
+
+.menu-toggle:hover,
+.menu-toggle:focus {
+  color: var(--primary-color); /* Color al pasar el mouse o enfocar */
+  outline: 2px solid var(--primary-color); /* Contorno de enfoque accesible */
+  outline-offset: 3px;
 }
 
 /* === Ajustes de Margen y Selectores Específicos === */
@@ -326,98 +451,138 @@ footer .social-icons a:hover {
   }
 
   section {
-    padding: 40px 0;
+    padding: 60px 0; /* Padding ajustado */
   }
 
   header {
-    padding: 60px 0;
+    padding: 80px 0; /* Padding ajustado */
   }
 
   /* Ajustes de tamaño de fuente para títulos principales */
-  header h1 {
+  h1 {
+    font-size: 2.5em;
+  }
+  h2 {
     font-size: 2em;
   }
-
-  header p {
-    font-size: 1em;
+  h3 {
+    font-size: 1.5em;
   }
+  p {
+    font-size: 1em;
+  } /* Reducimos tamaño de párrafo */
 
   section h2 {
-    font-size: 1.8em;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem; /* Margen ajustado */
   }
 
   /* Ajustes para la rejilla de proyectos */
   .projects-list {
-    gap: 20px;
+    gap: 30px; /* Espacio ajustado */
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(280px, 1fr)
+    ); /* Mínimo 280px */
+  }
+
+  .project-item {
+    padding: 20px; /* Padding ajustado */
+  }
+
+  .project-item img {
+    margin-bottom: 1rem; /* Margen ajustado */
+  }
+
+  .project-item p {
+    margin-bottom: 1rem; /* Margen ajustado */
   }
 
   /* Ajustes para la lista de habilidades */
   #habilidades ul {
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 8px;
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(100px, 1fr)
+    ); /* Mínimo 100px */
+    gap: 10px; /* Espacio ajustado */
   }
 
   #habilidades li {
-    padding: 8px 12px;
-    font-size: 0.85em;
+    padding: 10px 15px; /* Padding ajustado */
+    font-size: 0.9em; /* Tamaño ajustado */
   }
 
   /* Ajustes de navegación para móvil */
   nav .container {
-    flex-direction: column; /* Apila el título y la lista verticalmente */
-    text-align: center; /* Centra el texto */
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 15px; /* Ajusta el padding del contenedor en mobile */
   }
 
   nav .site-title {
-    margin-bottom: 10px; /* Espacio debajo del título cuando está apilado */
+    margin-bottom: 0;
+  }
+
+  nav .site-title a {
+    font-size: 1.5em; /* Tamaño ajustado */
   }
 
   nav ul {
     /* Ocultar la lista de menú principal por defecto en pantallas pequeñas */
-    display: none; /* Lo ocultamos visualmente y no ocupa espacio */
+    /*display: none; /* Lo ocultamos visualmente */
 
     flex-direction: column; /* Apila los ítems de la lista verticalmente */
     width: 100%; /* Ocupa todo el ancho en móvil */
-    background-color: #333; /* Fondo del menú desplegado (ajústalo si usas posición absoluta) */
-    /* Si usas posicionamiento absoluto, descomenta estas líneas: */
-    /* position: absolute; */
-    /* top: [altura de tu nav]; */
-    /* left: 0; */
-    /* box-shadow: 0 2px 5px rgba(0,0,0,0.2); */
-    /* padding-bottom: 10px; */
+    background-color: var(--dark-background); /* Fondo del menú desplegado */
+    /* Estilos de posicionamiento absoluto para superponer */
+    position: absolute;
+    top: 65px; /* Ajusta según la altura real de tu barra de nav */
+    left: 0;
+    box-shadow: var(--box-shadow-hover); /* Sombra para el menú desplegado */
+    padding: 10px 0; /* Padding vertical */
+    opacity: 0; /* Empieza invisible */
+    visibility: hidden; /* No interactuable cuando está oculto */
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Transición suave al mostrar/ocultar */
   }
 
-  /* Mostrar el botón de hamburguesa en pantallas pequeñas */
-  .menu-toggle {
-    display: block; /* Lo hacemos visible */
+  /* Estilos para cuando el menú móvil está abierto (activado por JS) */
+  nav ul.menu-open {
+    /* ¡Esta regla es activada por JS! */
+    display: flex; /* O display: block; para mostrar la lista */
+    opacity: 1; /* Se vuelve visible */
+    visibility: visible; /* Se vuelve interactuable */
   }
 
   /* Ajustes para que los ítems de menú apilados se vean bien */
   nav ul li {
-    margin-left: 0; /* Elimina el margen izquierdo entre ítems */
-    margin-bottom: 5px; /* Espacio debajo de cada ítem de menú */
+    margin-left: 0; /* Elimina el margen izquierdo */
+    margin-bottom: 5px; /* Espacio debajo */
   }
 
   nav ul li:last-child {
-    margin-bottom: 0; /* Elimina el margen debajo del último ítem */
+    margin-bottom: 0;
   }
 
   nav ul li a {
-    padding: 5px 0; /* Ajusta el padding */
+    padding: 10px 20px; /* Mayor padding para facilitar el clic */
+    display: block; /* Hace que el área clicable ocupe todo el ancho del li */
+    text-align: left; /* Alinea el texto a la izquierda si display block */
   }
 
   /* Ajustes de íconos sociales en el footer para pantallas pequeñas */
-  footer .social-icons a {
-    font-size: 1.5em; /* Ligeramente más pequeños en mobile */
-    margin: 0 8px; /* Espacio reducido */
+  footer .social-icons {
+    gap: 15px; /* Espacio ajustado */
   }
 
-  /* Estilos para cuando el menú móvil está abierto (esta clase la añadiremos con JS) */
-  /* nav ul.menu-open { */
-  /* display: flex; */
-  /* O display: block; dependiendo de cómo lo diseñes */
-  /* } */
+  footer .social-icons a {
+    font-size: 1.8em; /* Tamaño ajustado */
+  }
+
+  /* Opcional: Estilo para el body cuando el menú está abierto para evitar scroll del contenido detrás */
+  /* body.nav-open {
+      overflow: hidden;
+  } */
 }
 
 /* Media Query para pantallas MUY pequeñas (teléfonos) */
@@ -428,58 +593,86 @@ footer .social-icons a:hover {
   }
 
   section {
-    padding: 30px 0;
+    padding: 40px 0; /* Padding ajustado */
   }
 
   header {
-    padding: 40px 0;
+    padding: 60px 0; /* Padding ajustado */
   }
 
   /* Ajustes de tamaño de fuente para títulos en pantallas muy pequeñas */
-  header h1 {
+  h1 {
+    font-size: 2em;
+  }
+  h2 {
     font-size: 1.8em;
   }
-
-  header p {
-    font-size: 0.95em;
+  h3 {
+    font-size: 1.3em;
   }
+  p {
+    font-size: 0.95em;
+  } /* Reducimos tamaño de párrafo */
 
   section h2 {
-    font-size: 1.6em;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem; /* Margen ajustado */
   }
 
   /* Ajustes finos para la rejilla de proyectos en pantallas muy pequeñas */
   .projects-list {
-    gap: 15px;
+    gap: 20px; /* Espacio ajustado */
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(250px, 1fr)
+    ); /* Mínimo 250px */
   }
 
   .project-item {
-    padding: 15px;
+    padding: 15px; /* Padding ajustado */
+  }
+
+  .project-item img {
+    margin-bottom: 1rem; /* Margen ajustado */
+  }
+
+  .project-item p {
+    margin-bottom: 1rem; /* Margen ajustado */
   }
 
   /* Ajustes finos para la lista de habilidades en pantallas muy pequeñas */
   #habilidades ul {
-    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
-    gap: 6px;
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(80px, 1fr)
+    ); /* Mínimo 80px */
+    gap: 8px; /* Espacio ajustado */
   }
 
   #habilidades li {
-    padding: 6px 10px;
-    font-size: 0.8em;
+    padding: 8px 12px; /* Padding ajustado */
+    font-size: 0.8em; /* Tamaño ajustado */
   }
 
   /* Ajustes finos para navegación o íconos si es necesario en este tamaño */
   nav .site-title a {
-    font-size: 1.3em;
+    font-size: 1.4em; /* Tamaño ajustado */
   }
 
   .menu-toggle {
-    font-size: 1.5em; /* Un poco más pequeño */
+    font-size: 1.8em; /* Tamaño ajustado */
+    padding: 4px;
+  }
+
+  footer .social-icons {
+    gap: 10px; /* Espacio ajustado */
   }
 
   footer .social-icons a {
-    font-size: 1.3em;
-    margin: 0 6px;
+    font-size: 1.5em; /* Tamaño ajustado */
+  }
+
+  /* Ajuste del top de la lista de menú desplegada si la altura del nav cambia */
+  nav ul {
+    top: 60px; /* Ajusta si la altura del nav es diferente en este tamaño */
   }
 }
